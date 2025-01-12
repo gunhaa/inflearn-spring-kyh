@@ -1,0 +1,27 @@
+# yml 파일은 띄여쓰기 2칸이 매우 중요하다.
+spring:
+  # 테스트데이터 관련 설정
+  # main과 test환경을 분리한다
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/querydsl
+#    데스크톱
+#    username: sa
+#    노트북
+    username: aa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      # 애플리케이션 시작 시점에 테이블을 전부 드랍하고 다시 생성한다
+      ddl-auto: create
+    properties:
+      hibernate:
+    #        show_sql: true
+        format_sql: true
+        # QueryDSL의 JPQL을 주석으로 콘솔에서 볼 수 있다.
+        use_sql_comments: true
+logging.level:
+  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
